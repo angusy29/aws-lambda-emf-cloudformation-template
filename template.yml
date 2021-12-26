@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'AWS CloudFormation Sample Template for AWS Lambda'
+Resources:
+  BasicLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Description: Sample Python Lambda function
+      FunctionName: BasicLambdaFunction
+      Handler: app.handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+      Runtime: python3.8
+      Timeout: 60
+      Layers:
+        - !Ref BasicLambdaLib
+
+  BasicLambdaLib:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: BasicLambdaLib
+      Description: External dependencies for Lambda function
+      ContentUri: ./lambda_layer
+      CompatibleRuntimes:
+        - python3.8
