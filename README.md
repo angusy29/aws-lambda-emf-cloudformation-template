@@ -7,6 +7,8 @@ This repository contains sample CloudFormation template which will deploy a basi
 1. Clone the repository
 1. Install AWS SAM CLI https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.
 html
+1. Set up virtual environment `python3 -m venv .env`
+1. Activate the virtual environment `source .env/bin/activate`
 1. Install dependencies from `requirements.txt` into `lambda_layer` via `pip install -r requirements.txt --target lambda_layer/python`
 1. `sam build`
 1. `sam deploy --stack-name sample-lambda`
